@@ -45,13 +45,6 @@
 
           console.log(x, y, z, w);
 
-          /*
-          var a = x;
-          var b = (x != z);
-          var c = !(y * w);
-          var d = (x*y) != (z*w);
-          */
-
           var a = x;
           var b = (x != y);
           var c = x*z;
@@ -69,7 +62,7 @@
 
   $(function() {
     $( "input[type='checkbox']" ).checkboxradio();
-    //$( ".output" ).checkboxradio( "disable" );
+    $( ".output" ).checkboxradio( "disable" );
     update();
     $( ".input" ).on('change', function() {
       update();
