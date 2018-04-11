@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
+  </head>
+  <body>
+
+  <fieldset>
+    <legend>Input:</legend>
+    <label for="input1">כפתור 1</label>
+    <input type="checkbox" name="input1" id="input1" class="input">
+    <label for="input2">כפתור 2</label>
+    <input type="checkbox" name="input2" id="input2" class="input">
+    <label for="input3">כפתור 3</label>
+    <input type="checkbox" name="input3" id="input3" class="input">
+    <label for="input4">כפתור 4</label>
+    <input type="checkbox" name="input4" id="input4" class="input">
+  </fieldset>
+
+  <fieldset>
+    <legend>Output:</legend>
+    <label for="output1">שער 1</label>
+    <input type="checkbox" name="output1" id="output1" class="output">
+    <label for="output2">שער 2</label>
+    <input type="checkbox" name="output2" id="output2" class="output">
+    <label for="output3">שער 3</label>
+    <input type="checkbox" name="output3" id="output3" class="output">
+    <label for="output4">שער 4</label>
+    <input type="checkbox" name="output4" id="output4" class="output">
+  </fieldset>
+
+
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script>
+  function update() {
+
+          var x = $( "#input1" ).is(':checked');
+          var y = $( "#input2" ).is(':checked');
+          var z = $( "#input3" ).is(':checked');
+          var w = $( "#input4" ).is(':checked');
+
+          console.log(x, y, z, w);
+
+          /*
+          var a = x;
+          var b = (x != z);
+          var c = !(y * w);
+          var d = (x*y) != (z*w);
+          */
+
+          var a = x;
+          var b = (x != y);
+          var c = x*z;
+          var d = !(y != (!w));
+
+          console.log(a, b, c, d);
+
+          $( "#output1" ).prop("checked", a);
+          $( "#output2" ).prop("checked", b);
+          $( "#output3" ).prop("checked", c);
+          $( "#output4" ).prop("checked", d);
+
+          $( ".output" ).checkboxradio("refresh");
+  }
+
+  $(function() {
+    $( "input[type='checkbox']" ).checkboxradio();
+    //$( ".output" ).checkboxradio( "disable" );
+    update();
+    $( ".input" ).on('change', function() {
+      update();
+    });
+
+  });
+  </script>
+  </body>
+</html>
